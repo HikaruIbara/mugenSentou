@@ -8,24 +8,7 @@
 #include <string>
 
 #include "mainDefine.h"
-
-namespace MSL
-{
-	struct Status
-	{
-		std::string name;
-		int maxhp;
-		int hp;
-		int at;
-		int de;
-		int mp;
-		int mpup;
-		int lv;
-		int exp;
-	};
-
-}
-using namespace MSL;
+#include "Status.h"
 
 class baseObject
 {
@@ -47,11 +30,11 @@ protected:
 	//アクティブかどうか
 	bool use;
 	//ステータス
-	Status status;
+	Status* status;
 
 	image* mainImg;
 
-	int imgMag;
+	float imgMag;
 
 	void mainImageSize();
 
@@ -59,16 +42,19 @@ protected:
 public:
 
 	//セッター
+	void SetDeath();
 	void setPostion(Vector2 pos) { this->pos = pos; }
-	void setMainImage(int handle) { mainImg = new image(handle); }
-	void setStatus(Status st) { status = st; }
+	void setMainImage(int handle);
+	void setStatus(int st, int side) { status->SetStatus(st, side); use = true; }
+	void setID(int id) { status->SetID(id); }
 
 	//ゲッター
 	double getW() { return w; }
 	double getH() { return h; }
 	bool getUse() { return use; }
-	Status getStatus() { return status; }
+	Status* getStatus() { return status; }
+	int getID() { return status->GetID(); }
 
-
+	void deleteObj();
 
 };

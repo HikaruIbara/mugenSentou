@@ -9,7 +9,7 @@ baseObject::baseObject()
 	//アクティブかどうか
 	use = false;
 	//ステイタス
-	status = Status();
+	status = new Status();
 
 	mainImg = new image();
 
@@ -24,6 +24,34 @@ void baseObject::mainImageSize()
 {
 	h = -1;
 	w = -1;
-	h = mainImg->GetImgaeH() * imgMag;
-	w = mainImg->GetImageW() * imgMag;
+	h = (int)(mainImg->GetImgaeH());
+	w = (int)(mainImg->GetImageW());
+
+}
+
+void baseObject::SetDeath()
+{
+	use = false;
+}
+
+void baseObject::setMainImage(int handle)
+{
+	mainImg = new image(handle);
+	mainImg->GetImageSize();
+}
+
+void baseObject::deleteObj()
+{
+	//座標
+	pos = pos.zero();
+	//サイズ
+	w = 0, h = 0;
+	//アクティブかどうか
+	use = false;
+	//ステイタス
+	status->SetStatus(0, 0);
+
+	mainImg->DeleteImage();
+
+	imgMag = 0;
 }

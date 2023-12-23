@@ -1,8 +1,8 @@
 #include "DxLib.h"
 #include "mikainoLib/mikainoLib.h"
 #include "MSLib/MSLib.h"
-#include "baseScene.h"
-#include "sceneIist.h"
+#include "Scene/baseScene.h"
+#include "Scene/sceneIist.h"
 
 //プロトタイプ
 void init();	//ゲームそのものの初期化
@@ -10,16 +10,11 @@ void action();	//動き　キー操作
 void draw();	//描画
 void end();
 
+#ifndef RELEASE
 DebugLog debLog;
+#endif //RELEASE
 
 baseScene* baseSc[3];
-
-#if 0
-image* yukari;
-image* ran;
-Vector2 yukariPos(0,0);
-Vector2 ranPos(0,0);
-#endif
 
 int sceneNo;
 int oldSceneNo;
@@ -33,10 +28,6 @@ void init()
 	baseSc[SCENE_BATTLE] = new battleScene();
 	baseSc[SCENE_RESULT] = new resultScene();
 
-#if  0
-	yukari = new image("data/image/enemy/yukari.png");
-	ran = new image("data/image/ran.png");
-#endif //  0
 }
 
 //ゲーム中の動作
@@ -52,41 +43,12 @@ void action()
 
 	oldSceneNo = sceneNo;
 
-#if 0
-	if (singlePush(KEY_INPUT_UP))
-	{
-		yukariPos.y -= 8;
-		ranPos.y -= 8;
-	}
-	if (singlePush(KEY_INPUT_DOWN))
-	{
-		yukariPos.y += 8;
-		ranPos.y += 8;
-	}
-	if (singlePush(KEY_INPUT_LEFT))
-	{
-		yukariPos.x -= 8;
-		ranPos.x -= 8;
-	}
-	if (singlePush(KEY_INPUT_RIGHT))
-	{
-		yukariPos.x += 8;
-		ranPos.x += 8;
-	}
-
-	printf("test");
-#endif
 }
 //ゲーム中の描画
 void draw()
 {
 	baseSc[sceneNo]->draw();
 
-#if 0
-	DrawBox(0, 0, 640, 480, GetColor(255, 255, 255), TRUE);
-	//yukari->RotaImage(yukariPos.x, yukariPos.y, 2, 0);
-	yukari->RotaImage(ranPos.x, ranPos.y, 2, 0);
-#endif
 }
 
 void end()
@@ -116,11 +78,14 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_  HINSTANCE hPrevInstance, 
 
 	//dxlibの初期化後にゲーム部分の初期化
 	init();
+
+#ifndef RELEASE
 	debLog.initDebugConsole();
+#endif // RELEASE
+
 	//ゲームループ
 	while (ProcessMessage() == 0)
 	{
-		debLog.clearDebugConsole();
 		action();
 		//画面の初期化
 		ClearDrawScreen();
@@ -134,7 +99,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_  HINSTANCE hPrevInstance, 
 		}
 	}
 	end();
+#ifndef RELEASE
 	debLog.endDebugConsole();
+#endif // RELEASE
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 	return 0;				// ソフトの終了 
 }

@@ -116,7 +116,7 @@ void Vector3::operator--()
 
 void Vector3::normalize()
 {
-	float mag = 1 / sqrtf((double)x * (double)x + (double)y * (double)y + (double)z * (double)z);
+	float mag = (float)(1 / sqrt((double)x * (double)x + (double)y * (double)y + (double)z * (double)z));
 	x *= mag;
 	y *= mag;
 	z *= mag;

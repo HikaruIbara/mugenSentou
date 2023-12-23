@@ -14,7 +14,7 @@ bool init = false;
 void initXshit()
 {
 	//Œ»İ‚ÌŠÔ‚ğæ“¾‚µ‚Ä—”‚Ìí‚ğ¶¬
-	state = duration_cast<seconds>(system_clock::now().time_since_epoch()).count();
+	state = (uint32_t)duration_cast<seconds>(system_clock::now().time_since_epoch()).count();
 }
 
 uint32_t xorshift32()

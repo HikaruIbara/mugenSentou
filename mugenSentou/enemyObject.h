@@ -1,17 +1,18 @@
 #pragma once
 #include "baseObject.h"
+
 class enemyObject :
-    public baseObject
+	public baseObject
 {
 public:
-    enemyObject();
-    ~enemyObject();
+	enemyObject();
+	~enemyObject();
 
-    void action();
-    void draw();
-    void init();
-    void end();
+	void action();
+	void draw();
+	void init();
+	void end();
 
-    void setDefaultStatus();
+	void HpBardraw();
 };
 

@@ -12,8 +12,6 @@ public:
     void init();
     void end();
 
-    void setDefaultStatus();
-
 private:
 };
 

@@ -18,7 +18,7 @@ public:
 	void DrawImage();
 	void DeleteImage();
 	void GetImageSize();
-	void RotaImage(int x, int y, float mag, float rota);
+	void RotaImage(int x, int y, float mag, float rota, int anchor = 18);
 	void SetRotateCenter(int hcx, int hcy);
 	int GetImageW();
 	int GetImgaeH();

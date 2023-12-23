@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="autoEnemySet.cpp" />
     <ClCompile Include="baseObject.cpp" />
-    <ClCompile Include="baseScene.cpp" />
-    <ClCompile Include="baseWindow.cpp" />
-    <ClCompile Include="battleScene.cpp" />
-    <ClCompile Include="battleWindow.cpp" />
+    <ClCompile Include="Scene\baseScene.cpp" />
+    <ClCompile Include="System\baseWindow.cpp" />
+    <ClCompile Include="System\Battle.cpp" />
+    <ClCompile Include="Scene\battleScene.cpp" />
+    <ClCompile Include="System\battleWindow.cpp" />
     <ClCompile Include="enemyObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mikainoLib\convertRGBtoHSV.cpp" />
@@ -155,15 +157,20 @@
     <ClCompile Include="MSLib\Vector2.cpp" />
     <ClCompile Include="MSLib\Vector3.cpp" />
     <ClCompile Include="playerObject.cpp" />
-    <ClCompile Include="resultScene.cpp" />
-    <ClCompile Include="titleScene.cpp" />
+    <ClCompile Include="Scene\resultScene.cpp" />
+    <ClCompile Include="Status.cpp" />
+    <ClCompile Include="Scene\titleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AllStatus.h" />
+    <ClInclude Include="autoEnemySet.h" />
     <ClInclude Include="baseObject.h" />
-    <ClInclude Include="baseScene.h" />
-    <ClInclude Include="baseWindow.h" />
-    <ClInclude Include="battleScene.h" />
-    <ClInclude Include="battleWindow.h" />
+    <ClInclude Include="Scene\baseScene.h" />
+    <ClInclude Include="System\baseWindow.h" />
+    <ClInclude Include="System\Battle.h" />
+    <ClInclude Include="Scene\battleScene.h" />
+    <ClInclude Include="System\BattleSelect.h" />
+    <ClInclude Include="System\battleWindow.h" />
     <ClInclude Include="enemyObject.h" />
     <ClInclude Include="mainDefine.h" />
     <ClInclude Include="mikainoLib\convertRGBtoHSV.h" />
@@ -177,9 +184,10 @@
     <ClInclude Include="MSLib\Vector3.h" />
     <ClInclude Include="objectList.h" />
     <ClInclude Include="playerObject.h" />
-    <ClInclude Include="resultScene.h" />
-    <ClInclude Include="sceneIist.h" />
-    <ClInclude Include="titleScene.h" />
+    <ClInclude Include="Scene\resultScene.h" />
+    <ClInclude Include="Scene\sceneIist.h" />
+    <ClInclude Include="Status.h" />
+    <ClInclude Include="Scene\titleScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

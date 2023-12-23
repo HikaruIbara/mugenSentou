@@ -23,7 +23,7 @@ image::image(int gHandle)
 }
 image::~image()
 {
-
+	DeleteGraph(GHandle);
 }
 
 void image::SetImage(int hx, int hy)
@@ -52,6 +52,7 @@ void image::DrawImage()
 void image::DeleteImage()
 {
 	DeleteGraph(GHandle);
+	//GHandle = 0;
 }
 
 void image::GetImageSize()
@@ -61,11 +62,36 @@ void image::GetImageSize()
 }
 
 
-void image::RotaImage(int x, int y, float mag, float rota)
+void image::RotaImage(int x, int y, float mag, float rota, int anchor)
 {
 	GetGraphSize(GHandle, &GSizeX, &GSizeY);
-	SetRotateCenter(GSizeX / 2, GSizeY / 2);
-	DrawRotaGraph3(x, y, cx, cy, mag, mag, rota, GHandle, TRUE);
+	//SetRotateCenter(GSizeX * mag / 2, GSizeY * mag / 2);
+	int dx = x;
+	int dy = y;
+	cx = 0;
+	cy = 0;
+	if ((anchor & ANCHOR_XCENTER) != 0)
+	{
+		dx = (x - GSizeX / 2) + GSizeX / 2;
+		cx = GSizeX / 2;
+	}
+	if ((anchor & ANCHOR_RIGHT) != 0)
+	{
+		dx = (x - GSizeX) + GSizeX;
+		cx = GSizeX;
+	}
+	if ((anchor & ANCHOR_YCENTER) != 0)
+	{
+		dy = (y - GSizeY / 2) + GSizeY / 2;
+		cy = GSizeY / 2;
+	}
+	if ((anchor & ANCHOR_BOTTOM) != 0)
+	{
+		dy = (y - GSizeY) + GSizeY;
+		cy = GSizeY;
+	}
+
+	DrawRotaGraph3(dx, dy, cx, cy, mag, mag, rota, GHandle, TRUE);
 
 }
 
