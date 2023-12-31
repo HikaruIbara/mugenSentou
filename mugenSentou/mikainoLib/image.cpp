@@ -23,7 +23,7 @@ image::image(int gHandle)
 }
 image::~image()
 {
-	DeleteGraph(GHandle);
+	//DeleteGraph(GHandle);
 }
 
 void image::SetImage(int hx, int hy)

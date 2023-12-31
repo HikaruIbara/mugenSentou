@@ -21,7 +21,7 @@ void playerObject::init()
 {
 	imgMag = PLAYER_MAG;
 	mainImageSize();
-	status->SetStatus(0,PLAYER);
+	status.SetStatus(0,PLAYER);
 	use = true;
 	setID(101);
 

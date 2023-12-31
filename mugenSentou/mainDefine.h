@@ -2,6 +2,7 @@
 
 #define RELEASE
 #define DEBUG
+#define NOT_LOAD_SOUND
 //#define MEMORY_LEAK
 
 //ƒV[ƒ“ŠÖ˜A

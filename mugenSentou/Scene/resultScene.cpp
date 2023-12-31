@@ -12,6 +12,7 @@ int resultScene::action()
 {
 	if (singlePush(KEY_INPUT_SPACE))
 	{
+		PlaySoundSE(SE_SELECT);
 		return SCENE_TITLE;
 	}
 

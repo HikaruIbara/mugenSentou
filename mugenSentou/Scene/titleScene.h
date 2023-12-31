@@ -15,6 +15,6 @@ public:
     void end();
 
 private:
-
+    int bgmVol;
 };
 

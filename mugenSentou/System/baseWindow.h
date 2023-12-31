@@ -6,6 +6,7 @@
 #include <math.h>
 #include <winuser.h>
 #include <string>
+#include <Windows.h>
 
 #include "../mainDefine.h"
 
@@ -114,17 +115,18 @@ protected:
 	MSL::Select nowSelect;
 
 	void GetCoursolPos();
+	void drawWindow();
 
 
 public:
 
 	void SetWindow(MSL::Rect rect, bool use = false, int edgeThick = 4, int edgeColor = INT32_MAX, int mainColor = GetColor(0, 0, 255));
-	void drawWindow();
 	void SetNowCursol(int nowCur) { nowRowNum = nowCur; };
 
 	//セッター
 	void SetPostion(int x, int y) { winSize.x = x; winSize.y = y; };
 	void SetString(std::string str, int color = 0xffffff, int fontSize = 30, int spaceX = 40, int spaceY = 8);
+	void SetFormatString(const char* str, ...);
 	void SetSelect(MSL::Select select, int color = 0xffffff, int fontSize = 30, int spaceX = 40, int spaceY = 8);
 	void SetCursol(bool use) { cursol.isCursol = use; };
 	void SetCursolUp();
@@ -136,4 +138,3 @@ public:
 	int GetSelectNum();
 	MSL::Select GetSelect() { return nowSelect; };
 };
-

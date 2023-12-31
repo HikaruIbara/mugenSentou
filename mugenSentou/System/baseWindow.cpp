@@ -128,6 +128,32 @@ void baseWindow::SetString(std::string str, int color, int fontSize, int spaceX,
 	fontSpace_y = spaceY;
 }
 
+void baseWindow::SetFormatString(const char* str, ...)
+{
+	//va_list args;
+	//va_start(args, str);
+	//for (int i = 0; str[i]!='\0'; ++i) {
+	//	printf("%c\n", va_arg(args, char*));
+	//	switch (str[i]) {
+	//	case 'd':
+	//		printf("%d\n", va_arg(args, int));
+	//		break;
+	//	case 'f':
+	//		printf("%f\n", va_arg(args, double));
+	//		break;
+	//	case 'c':
+	//		printf("%c\n", va_arg(args, char*));
+	//		break;
+	//	case 's':
+	//		printf("%s\n", va_arg(args, char*));
+	//		break;
+	//	default:
+	//		break;
+	//	}
+	//}
+	//va_end(args);
+}
+
 void baseWindow::SetSelect(MSL::Select select, int color, int fontSize, int spaceX, int spaceY)
 {
 	nowSelect = select;

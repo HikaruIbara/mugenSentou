@@ -30,7 +30,7 @@ protected:
 	//アクティブかどうか
 	bool use;
 	//ステータス
-	Status* status;
+	Status status;
 
 	image* mainImg;
 
@@ -45,15 +45,16 @@ public:
 	void SetDeath();
 	void setPostion(Vector2 pos) { this->pos = pos; }
 	void setMainImage(int handle);
-	void setStatus(int st, int side) { status->SetStatus(st, side); use = true; }
-	void setID(int id) { status->SetID(id); }
+	void setStatus(int st, int side) { status.SetStatus(st, side); use = true; }
+	void setStatus(Status* st) { status = *st; use = true; }
+	void setID(int id) { status.SetID(id); }
 
 	//ゲッター
 	double getW() { return w; }
 	double getH() { return h; }
 	bool getUse() { return use; }
-	Status* getStatus() { return status; }
-	int getID() { return status->GetID(); }
+	Status* getStatus() { return &status; }
+	int getID() { return status.GetID(); }
 
 	void deleteObj();
 

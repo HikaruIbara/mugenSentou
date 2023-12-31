@@ -44,6 +44,7 @@ public:
 	void SetDeathFlag(bool flag) { deathFlag = flag; }
 
 	void AddHp(int addHp) { myStatus.hp += addHp; }
+	void AddAt(int addat) { myStatus.at += addat; }
 
 	int GetID() { return id; }
 	int GetActID() { return actID; }

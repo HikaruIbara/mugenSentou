@@ -9,7 +9,7 @@ baseObject::baseObject()
 	//アクティブかどうか
 	use = false;
 	//ステイタス
-	status = new Status();
+	status = Status();
 
 	mainImg = new image();
 
@@ -18,6 +18,7 @@ baseObject::baseObject()
 
 baseObject::~baseObject()
 {
+	//delete mainImg;
 }
 
 void baseObject::mainImageSize()
@@ -49,7 +50,7 @@ void baseObject::deleteObj()
 	//アクティブかどうか
 	use = false;
 	//ステイタス
-	status->SetStatus(0, 0);
+	status.SetStatus(0, 0);
 
 	mainImg->DeleteImage();
 

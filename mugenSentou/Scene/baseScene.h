@@ -5,6 +5,7 @@
 #include <string>
 
 #include "../mainDefine.h"
+#include "../Sound/soundController.h"
 
 //各シーンのベースシーン
 class baseScene

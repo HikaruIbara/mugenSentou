@@ -1,6 +1,5 @@
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\vc143.pdb
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\vc143.idb
-c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\status.obj
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\resultscene.obj
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\playerobject.obj
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\vector3.obj
@@ -18,9 +17,13 @@ c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\battlescene.obj
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\battle.obj
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\basewindow.obj
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\basescene.obj
+c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\playse.obj
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\baseobject.obj
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\autoenemyset.obj
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\titlescene.obj
+c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\status.obj
+c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\playbgm.obj
+c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\soundcontroller.obj
 c:\ss\c++\backup\mugensentou\x64\debug\mugensentou.exe
 c:\ss\c++\backup\mugensentou\mugensentou\x64\debug\mugensentou.ilk
 c:\ss\c++\backup\mugensentou\x64\debug\mugensentou.pdb

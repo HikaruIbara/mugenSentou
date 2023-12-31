@@ -3,6 +3,7 @@
 #include "MSLib/MSLib.h"
 #include "Scene/baseScene.h"
 #include "Scene/sceneIist.h"
+#include "Sound/soundController.h"
 
 //プロトタイプ
 void init();	//ゲームそのものの初期化
@@ -16,12 +17,30 @@ DebugLog debLog;
 
 baseScene* baseSc[3];
 
+bool soundSettingFlag;
+
 int sceneNo;
 int oldSceneNo;
 
 //初期化
 void init()
 {
+	soundSettingFlag = false;
+	InitSound();
+	LoadSoundSE();
+	LoadSoundBGM();
+
+	// ********** フォントのロード **********
+	LPCSTR font_path = "data/font/DotGothic16-Regular.ttf"; // 読み込むフォントファイルのパス
+	if (AddFontResourceEx(font_path, FR_PRIVATE, NULL) > 0) {
+	}
+	else {
+		// フォント読込エラー処理
+		MessageBox(NULL, "フォント読込失敗", "", MB_OK);
+	}
+
+	ChangeFont("Dotgothic16", DX_CHARSET_DEFAULT);
+
 	sceneNo = 0;
 
 	baseSc[SCENE_TITLE] = new titleScene();
@@ -34,6 +53,17 @@ void init()
 void action()
 {
 	keyUpDate();
+
+	if (singlePush(KEY_INPUT_Q))
+	{
+		soundSettingFlag = !soundSettingFlag;
+	}
+
+	if (soundSettingFlag)
+	{
+		SoundAction();
+		return;
+	}
 
 	sceneNo = baseSc[sceneNo]->action();
 	if (sceneNo != oldSceneNo)
@@ -49,6 +79,10 @@ void draw()
 {
 	baseSc[sceneNo]->draw();
 
+	if (soundSettingFlag)
+	{
+		SoundDraw();
+	}
 }
 
 void end()
@@ -57,6 +91,7 @@ void end()
 	{
 		baseSc[i]->end();
 	}
+	DeleteSe();
 }
 
 // プログラムは WinMain から始まります
@@ -65,7 +100,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_  HINSTANCE hPrevInstance, 
 	//画面サイズを設定
 	SetGraphMode(640, 480, 32);
 	//ウインドウのタイトル変更
-	//SetMainWindowText("dxlibTest");
+	SetMainWindowText("無限戦闘");
 	//ウインドウモード変更
 	ChangeWindowMode(TRUE);
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理

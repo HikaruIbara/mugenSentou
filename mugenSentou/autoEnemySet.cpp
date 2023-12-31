@@ -3,13 +3,14 @@
 autoEnemySet::autoEnemySet()
 {
 	initXshit();
+	stInfo = { 0,0,0 };
 }
 
 autoEnemySet::~autoEnemySet()
 {
 }
 
-int* autoEnemySet::SetEnemy(enemyObject* enemys[])
+int* autoEnemySet::SetEnemy(enemyObject* enemys[], StatusSetInfo* stInfo)
 {
 	int enemyNum = 0;
 	int* enemyID;
@@ -85,12 +86,24 @@ void autoEnemySet::SetEnemyGraph(enemyObject* enemyObj[], int* enemyhandle, int 
 
 void autoEnemySet::InitEnemyStatus(enemyObject* enemyObj[], int* enemyID, int size)
 {
+	Status* st;
+	st = new Status();
+	st->SetStatus(1, PLAYER);
+	st->SetHpMax(100);
+	st->SetHp(100);
+
 	for (int i = 0; i < size; i++)
 	{
 		enemyObj[i]->init();
-		enemyObj[i]->setStatus(enemyID[i],ENEMY);
+		//enemyObj[i]->setStatus(enemyID[i],ENEMY);
+		enemyObj[i]->setStatus(st);
 		enemyObj[i]->setID(enemyID[i]);
 	}
+}
+
+void autoEnemySet::SetEnemyStatus(enemyObject* enemyObj[], int* enemyID, int size)
+{
+
 }
 
 /*

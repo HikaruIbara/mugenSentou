@@ -34,7 +34,9 @@ private:
 
 	//ƒoƒgƒ‹‚Ìˆ—
 	Battle* battle;
+	StatusSetInfo stInfo;
 	autoEnemySet autoEnSet;
+
 
 	int enemyCount;
 	int* enemyID;

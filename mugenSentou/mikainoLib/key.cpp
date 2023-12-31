@@ -7,6 +7,8 @@ char keyBuf[256];
 //前のフレームに押されていたのかがわかる変数
 char keyOldBuf[256];
 
+int pushCount = 0;
+
 //キー入力の更新　舞フレーム呼び出しておく必要がある
 void keyUpDate()
 {
@@ -37,6 +39,32 @@ bool keyPushUp(int KeyNo)
 {
 	//前のフレームに押されていて、今のフレームに押されていない
 	if (keyBuf[KeyNo] == 0 && keyOldBuf[KeyNo] == 1)return true;
+	return false;
+}
+
+bool volumePush(int keyNo)
+{
+	if (keyPushUp(keyNo))
+	{
+		pushCount = 0;
+		return false;
+	}
+	if (keyPush(keyNo))
+	{
+
+		if (pushCount >= 30)
+		{
+			return true;
+		}
+		else if (pushCount < 30)
+		{
+			pushCount++;
+			return singlePush(keyNo);
+		}
+
+
+	}
+
 	return false;
 }
 

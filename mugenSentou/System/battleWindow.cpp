@@ -14,15 +14,15 @@ battleWindow::battleWindow()
 	nowRowNum = 0;
 
 	selected = false;
-	reAct = 0;
+	reAct = { 0,0 };
 }
 
 battleWindow::~battleWindow()
 {
-	for (int i = 0; i < 4; i++)
-	{
-		delete baseWin[i];
-	}
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	delete baseWin[i];
+	//}
 
 }
 
@@ -30,17 +30,20 @@ ReAction* battleWindow::action()
 {
 	if (singlePush(KEY_INPUT_UP))
 	{
+		PlaySe(SE_MOVE);
 		baseWin[selectWin]->SetCursolUp();
 		nowRowNum = baseWin[selectWin]->GetSelectNum();
 	}
 	if (singlePush(KEY_INPUT_DOWN))
 	{
+		PlaySe(SE_MOVE);
 		baseWin[selectWin]->SetCursolDown();
 		nowRowNum = baseWin[selectWin]->GetSelectNum();
 	}
 
 	if (singlePush(KEY_INPUT_Z))
 	{
+		PlaySe(SE_SELECT);
 		int cmdSelNum = baseWin[selectWin]->GetSelect().num;
 		int num;
 
@@ -48,7 +51,7 @@ ReAction* battleWindow::action()
 
 		if (selectWin == 0)
 		{
-			reAct->tarEnemyNum = selectNum;
+			reAct.tarEnemyNum = selectNum;
 
 		}
 		else if (selectWin == 1)
@@ -57,23 +60,23 @@ ReAction* battleWindow::action()
 			switch (selectNum)
 			{
 			case ATTACK - 1:
-				reAct->actPattern = ATTACK;
+				reAct.actPattern = ATTACK;
 				break;
 			case MAGICK - 1:
-				reAct->actPattern = MAGICK;
+				reAct.actPattern = MAGICK;
 				break;
 			case DEFENSE - 1:
-				reAct->actPattern = DEFENSE;
+				reAct.actPattern = DEFENSE;
 				break;
 			case RECOVER - 1:
-				reAct->actPattern = RECOVER;
+				reAct.actPattern = RECOVER;
 				break;
 			}
 			selected = true;
 
 		}
 		num = selectNum;
-		num = reAct->actPattern;
+		num = reAct.actPattern;
 
 		if (selectWin == 0)
 		{
@@ -93,6 +96,7 @@ ReAction* battleWindow::action()
 	}
 	if (singlePush(KEY_INPUT_X))
 	{
+		PlaySe(SE_CANCEL);
 		selectWin = 0;
 		baseWin[0]->SetNowCursol(0);
 		baseWin[0]->SetUse(true);
@@ -110,7 +114,7 @@ ReAction* battleWindow::action()
 		//delete reAct;
 		//selected = false;
 		//return r;
-		return reAct;
+		return &reAct;
 	}
 	else
 		return nullptr;
@@ -160,7 +164,7 @@ void battleWindow::init(int enemyID[], int size)
 	rowNum = 0;
 	nowRowNum = 0;
 	selected = false;
-	reAct = new ReAction();
+	reAct = { 0,0 };
 
 }
 
@@ -171,12 +175,9 @@ void battleWindow::start()
 	rowNum = 0;
 	nowRowNum = 0;
 	selected = false;
-	reAct->actPattern = 0;
-	reAct->tarEnemyNum = 0;
+	reAct = { 0,0 };
 }
 
 void battleWindow::end()
 {
-	if (reAct != nullptr)
-		delete reAct;
 }

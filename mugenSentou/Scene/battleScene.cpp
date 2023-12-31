@@ -7,7 +7,7 @@ battleScene::battleScene()
 	waveCount = 0;
 
 	battle = new Battle();
-
+	stInfo = StatusSetInfo();
 	enemyCount = 0;
 	enemyID = 0;
 	for (int i = 0; i < PARTY_MAX; i++)
@@ -45,23 +45,24 @@ battleScene::battleScene()
 
 battleScene::~battleScene()
 {
-	delete[] battle;
-	for (int i = 0; i < PARTY_MAX; i++)
-	{
-		delete players[i];
-	}
-	for (int i = 0; i < ENEMY_MAX; i++)
-	{
-		delete enemys[i];
-	}
-	delete[] UIwin;
+	//delete battle;
+	//for (int i = 0; i < PARTY_MAX; i++)
+	//{
+	//	delete players[i];
+	//}
+	//for (int i = 0; i < ENEMY_MAX; i++)
+	//{
+	//	delete enemys[i];
+	//}
+	//delete UIwin;
 }
 
 int battleScene::action()
 {
 #ifdef DEBUG
-	if (singlePush(KEY_INPUT_Q))
+	if (keyPush(KEY_INPUT_E) && keyPush(KEY_INPUT_T))
 	{//ã≠êßèIóπ
+		PlaySe(SE_SELECT);
 		end();
 		return SCENE_RESULT;
 	}
@@ -157,9 +158,17 @@ void battleScene::init()
 		players[0]->setStatus(reimu, PLAYER);
 
 	}
+	else
+	{
+		players[0]->getStatus()->AddHp(10);
+		players[0]->getStatus()->AddAt(5);
+	}
 
+	stInfo.playerSt = players[0]->getStatus();
+	stInfo.trun = 5;
+	stInfo.wave = waveCount;
 	//ìGÇÃê›íË
-	enemyID = autoEnSet.SetEnemy(enemys);
+	enemyID = autoEnSet.SetEnemy(enemys, &stInfo);
 	for (int i = 0; i < ENEMY_MAX; i++)
 	{
 		if (enemys[i]->getUse())
@@ -314,13 +323,14 @@ void battleScene::uiDraw()
 	DrawFormatString(256 + infoFontSpace, 336 + infoFontSize * 2 + infoFontSpace, GetColor(255, 255, 255), "MP: %d MPUP: %d", playerST->GetMp(), playerST->GetMpUp());
 	DrawFormatString(256 + infoFontSpace, 336 + infoFontSize * 3 + infoFontSpace, GetColor(255, 255, 255), "LV: %d EXP: %d", playerST->GetLv(), playerST->GetExp());
 
-	DrawFormatString(0, 0, GetColor(0, 255, 0), "NOWTURN: %d", battle->GetNowTurn());
 
 	for (int i = 0; i < ENEMY_MAX; i++)
 	{
 		enemys[i]->HpBardraw();
 	}
 
-	DrawFormatString(640 - infoFontSize / 2 * 8 - 6, 0, DXLIB_COL_WHITE, "%03d WAVE", waveCount);
-
+#ifdef DEBUG
+	DrawFormatString(640 - infoFontSize / 2 * 8 - 6, 0, DXLIB_COL_GREEN, "%03d WAVE", waveCount);
+	DrawFormatString(0, 0, DXLIB_COL_GREEN, "NOWTURN: %d", battle->GetNowTurn());
+#endif // DEBUG
 }

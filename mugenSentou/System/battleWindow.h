@@ -1,6 +1,7 @@
 #pragma once
 #include "baseWindow.h"
 #include "../enemyObject.h"
+#include "../Sound/playSe.h"
 using namespace MSL;
 
 //ウィンドウの種類
@@ -51,6 +52,6 @@ private:
 	int nowRowNum;
 	int rowNum;
 	bool selected;
-	ReAction* reAct;
+	ReAction reAct;
 	//void SetNowCursol(int nowCur) { nowRowNum = nowCur; };
 };

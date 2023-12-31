@@ -70,6 +70,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReferencePath>C:\ss\C++\backup\mugenSentou\mugenSentou\data;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ReferencePath>C:\ss\C++\backup\mugenSentou\mugenSentou\data;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -141,6 +147,9 @@
   <ItemGroup>
     <ClCompile Include="autoEnemySet.cpp" />
     <ClCompile Include="baseObject.cpp" />
+    <ClCompile Include="Sound\soundController.cpp" />
+    <ClCompile Include="Sound\playBgm.cpp" />
+    <ClCompile Include="Sound\playSe.cpp" />
     <ClCompile Include="Scene\baseScene.cpp" />
     <ClCompile Include="System\baseWindow.cpp" />
     <ClCompile Include="System\Battle.cpp" />
@@ -165,6 +174,9 @@
     <ClInclude Include="AllStatus.h" />
     <ClInclude Include="autoEnemySet.h" />
     <ClInclude Include="baseObject.h" />
+    <ClInclude Include="Sound\soundController.h" />
+    <ClInclude Include="Sound\playBgm.h" />
+    <ClInclude Include="Sound\playSe.h" />
     <ClInclude Include="Scene\baseScene.h" />
     <ClInclude Include="System\baseWindow.h" />
     <ClInclude Include="System\Battle.h" />
@@ -188,6 +200,7 @@
     <ClInclude Include="Scene\sceneIist.h" />
     <ClInclude Include="Status.h" />
     <ClInclude Include="Scene\titleScene.h" />
+    <ClInclude Include="Sound\soundDefine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

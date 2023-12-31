@@ -1,5 +1,8 @@
 C:\ss\C++\backup\mugenSentou\mugenSentou\autoEnemySet.cpp;C:\ss\C++\backup\mugenSentou\mugenSentou\x64\Release\autoEnemySet.obj
 C:\ss\C++\backup\mugenSentou\mugenSentou\baseObject.cpp;C:\ss\C++\backup\mugenSentou\mugenSentou\x64\Release\baseObject.obj
+C:\ss\C++\backup\mugenSentou\mugenSentou\Sound\soundController.cpp;C:\ss\C++\backup\mugenSentou\mugenSentou\x64\Release\soundController.obj
+C:\ss\C++\backup\mugenSentou\mugenSentou\Sound\playBgm.cpp;C:\ss\C++\backup\mugenSentou\mugenSentou\x64\Release\playBgm.obj
+C:\ss\C++\backup\mugenSentou\mugenSentou\Sound\playSe.cpp;C:\ss\C++\backup\mugenSentou\mugenSentou\x64\Release\playSe.obj
 C:\ss\C++\backup\mugenSentou\mugenSentou\Scene\baseScene.cpp;C:\ss\C++\backup\mugenSentou\mugenSentou\x64\Release\baseScene.obj
 C:\ss\C++\backup\mugenSentou\mugenSentou\System\baseWindow.cpp;C:\ss\C++\backup\mugenSentou\mugenSentou\x64\Release\baseWindow.obj
 C:\ss\C++\backup\mugenSentou\mugenSentou\System\Battle.cpp;C:\ss\C++\backup\mugenSentou\mugenSentou\x64\Release\Battle.obj

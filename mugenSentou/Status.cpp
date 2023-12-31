@@ -4,12 +4,20 @@ Status::Status()
 {
 	myStatus = allSt.GetPlInitSt(0);
 	deathFlag = false;
+
+	id = -1;
+	actID = -1;
+	tarID = -1;
 }
 
 Status::Status(StatusPer st)
 {
 	myStatus = st;
 	deathFlag = false;
+
+	id = -1;
+	actID = -1;
+	tarID = -1;
 
 }
 

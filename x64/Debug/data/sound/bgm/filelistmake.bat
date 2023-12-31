@@ -1,0 +1,1 @@
+dir /b *.mp3 > filelist.list

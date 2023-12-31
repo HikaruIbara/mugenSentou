@@ -33,15 +33,15 @@ Battle::Battle()
 
 Battle::~Battle()
 {
-	for (int i = 0; i < PARTY_MAX; i++)
-	{
-		delete playerSt[i];
+	//for (int i = 0; i < PARTY_MAX; i++)
+	//{
+	//	delete playerSt[i];
 
-	}
-	for (int i = 0; i < ENEMY_MAX; i++)
-	{
-		delete enemySt[i];
-	}
+	//}
+	//for (int i = 0; i < ENEMY_MAX; i++)
+	//{
+	//	delete enemySt[i];
+	//}
 }
 
 

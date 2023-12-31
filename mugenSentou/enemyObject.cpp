@@ -24,10 +24,10 @@ void enemyObject::init()
 {
 	imgMag = ENEMY_MAG;
 	mainImageSize();
-	status->SetStatus(0, ENEMY);
+	status.SetStatus(0, ENEMY);
 	use = false;
-	status->SetActID(1);
-	status->SetTarID(1);
+	status.SetActID(1);
+	status.SetTarID(1);
 }
 
 void enemyObject::end()
@@ -40,8 +40,8 @@ void enemyObject::HpBardraw()
 		return;
 
 	int len = 100;//バー全体の長さ
-	int hp = status->GetHp();
-	int maxhp = status->GetHpMax();
+	int hp = status.GetHp();
+	int maxhp = status.GetHpMax();
 	int barHigh = 4;
 	double hpLen = (double)hp / (double)maxhp;//HP残量の表示長さ
 	if (hp < 0)
